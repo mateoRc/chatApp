@@ -2,9 +2,9 @@
   "name": "chatapp",
   "version": "1.0.0",
   "description": "A simple chat app that uses NodeJS, ExpressJS, SocketIO and jQuery",
-  "main": "index.js",
+  "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/mateoRc/chatApp/issues"
   },
-  "homepage": "https://github.com/mateoRc/chatApp#readme"
+  "homepage": "https://github.com/mateoRc/chatApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  }
 }
