@@ -1,7 +1,7 @@
-var test = require('express');
+var test = require('socket.io');
 
 if(test) {
-    console.log('its theree');
+    console.log('fuk juuu');
 } else {
     console.log('its not');
 }
