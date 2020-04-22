@@ -64,3 +64,10 @@ body {
     color: rgba(0, 174, 255, 0.698);
     background-color: rgb(10, 69, 179);
 }
+
+#test {
+    display: none;
+    width: 500px;
+    height: 500px;
+    background-color: lightblue;
+}
