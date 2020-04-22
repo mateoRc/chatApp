@@ -2,7 +2,7 @@
   "name": "chatapp",
   "version": "1.0.0",
   "description": "A simple chat app that uses NodeJS, ExpressJS, SocketIO and jQuery",
-  "main": "test.js",
+  "main": "server.js",
   "scripts": {
     "test": ""
   },

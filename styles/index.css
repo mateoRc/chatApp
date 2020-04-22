@@ -1,0 +1,66 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#login-area {
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: lightblue;
+}
+
+#login-text {
+    width: 100%;
+    color: lightcyan;
+    background-color: rgb(3, 56, 105);
+    text-align: center;
+    margin-top: 70px;
+}
+
+#login-form-area {
+    width: 100%;
+    background-color: lightblue;
+    text-align: center;
+    margin-top: 40px
+}
+
+#username {
+    height: 40px;
+    width: 220px;
+    padding: 0px 5px;
+    font-size: 16px;
+    margin-top: 40px;
+    outline: none;
+    outline-offset: 0;
+}
+
+#submit {
+    color: rgb(10, 69, 179);
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgba(0, 174, 255, 0.698);
+    border: 1px solid rgb(10, 69, 179);
+    height: 30px;
+    padding: 0px 5px;
+    cursor: pointer;
+    outline: none;
+    outline-offset: 0;
+}
+
+#submit:hover {
+    color: rgba(0, 174, 255, 0.698);
+    background-color: rgb(10, 69, 179);
+}
