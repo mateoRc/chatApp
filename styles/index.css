@@ -48,11 +48,11 @@ body {
 }
 
 #submit {
-    color: rgb(10, 69, 179);
+    color: lightcyan;
     font-weight: bold;
     font-size: 14px;
-    background-color: rgba(0, 174, 255, 0.698);
-    border: 1px solid rgb(10, 69, 179);
+    background-color: rgb(3, 56, 105);
+    border: transparent;
     height: 30px;
     padding: 0px 5px;
     cursor: pointer;
@@ -61,13 +61,13 @@ body {
 }
 
 #submit:hover {
-    color: rgba(0, 174, 255, 0.698);
-    background-color: rgb(10, 69, 179);
+    color: rgb(3, 56, 105);
+    background-color: lightcyan;
 }
 
-#test {
+#chat-area {
     display: none;
-    width: 500px;
-    height: 500px;
+    height: 100%;
+    width: 100%;
     background-color: lightblue;
 }

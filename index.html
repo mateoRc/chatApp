@@ -28,17 +28,19 @@
         </div>
     </div>
 
-    <div id="test"></div>
+    <div id="chat-area">
+        
+    </div>
 
     <script type="text/javascript">
         var socket = io();
-            $("#login-form").submit((event) => {
+            $('#login-form').submit((event) => {
                 event.preventDefault();
-                if($("#username").val() == "" || $("#username").val() == ' ') {
+                if($('#username').val() == "" || $('#username').val() == ' ') {
                     alert('invalid username!');
                 } else {
                     $('#login-area').hide();
-                    $('#test').show();
+                    $('#chat-area').show();
                 }
             });    
     </script>
