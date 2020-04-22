@@ -1,7 +1,7 @@
-var test = require('socket.io');
+const test = require('socket.io');
 
 if(test) {
-    console.log('fuk juuu');
+    console.log('it is here');
 } else {
     console.log('its not');
 }
