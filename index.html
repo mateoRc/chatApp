@@ -35,14 +35,19 @@
             </div>
 
             <div id="online-users">
-                <ul id="users"><li>user1</li><li>user2</li></ul>
+                <ul id="users"></ul>
             </div>
 
            
         </div>
         <div id="message-area">
             <div id="display-message-area">
-                <ul id="messages"><li>test-message1</li><li>test-message2</li><li>test-message3</li><li>test-message4</li></ul>
+                <ul id="messages">
+                    <!--
+                    <li>test-message1</li>
+                    <li>test-message2</li>
+                    -->
+                </ul>
             </div>
 
             <div id="message-form-area">
@@ -56,15 +61,40 @@
 
     <script type="text/javascript">
         var socket = io();
+        
+        function updateUsers(users) {
+            users.forEach(currUser => {
+                console.log(currUser);
+                $('#users').append(`<li><b>${currUser}</b></li>`);
+            });
+        };
             $('#login-form').submit((event) => {
                 event.preventDefault();
+
                 if($('#username').val() == "" || $('#username').val() == ' ') {
                     alert('invalid username!');
                 } else {
+                    $username = $('#username').val();
+
                     $('#login-area').hide();
                     $('#chat-area').show();
+
+                    socket.emit('has connected', $username);
                 }
-            });    
+            });   
+            
+            // handle event that came from the server (l.35)
+            socket.on('has connected', (data) => {
+                $('#users').html('');
+                updateUsers(data.userList);
+                $('#messages').append(`<li><i>User <b>${data.username}</b> has connected!</i></li>`);
+            });
+
+            socket.on('has disconnected', (data) => {
+                $('#users').html('');
+                updateUsers(data.userList);
+                $('#messages').append(`<li><i><b>${data.username}</b> has disconnected!</i></li>`)
+            });
     </script>
 </body>
 
