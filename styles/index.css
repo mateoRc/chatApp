@@ -135,7 +135,6 @@ body {
     padding-top: 20px;
     padding-bottom: 10px;
     color: white;
-    font-weight: bold;
 }
 
 #messages li:nth-child(odd) {

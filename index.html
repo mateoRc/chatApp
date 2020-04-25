@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" type="text/css" href="styles/index.css">
 
-        <title>Testing</title>
+        <title>myChat</title>
     </head>
 <body>
     <div id="login-area">
@@ -68,33 +68,51 @@
                 $('#users').append(`<li><b>${currUser}</b></li>`);
             });
         };
-            $('#login-form').submit((event) => {
-                event.preventDefault();
 
-                if($('#username').val() == "" || $('#username').val() == ' ') {
-                    alert('invalid username!');
-                } else {
-                    $username = $('#username').val();
+        $('#login-form').submit((event) => {
+            event.preventDefault();
 
-                    $('#login-area').hide();
-                    $('#chat-area').show();
+            if($('#username').val() == "" || $('#username').val() == ' ') {
+                alert('invalid username!');
+            } else {
+                $username = $('#username').val();
 
-                    socket.emit('has connected', $username);
-                }
-            });   
-            
-            // handle event that came from the server (l.35)
-            socket.on('has connected', (data) => {
-                $('#users').html('');
-                updateUsers(data.userList);
-                $('#messages').append(`<li><i>User <b>${data.username}</b> has connected!</i></li>`);
-            });
+                $('#login-area').hide();
+                $('#chat-area').show();
+                $('#messages').html('');
+                
+                socket.emit('has connected', $username);
+            }
+        });   
+        
+        $('#message-form').submit((event) => {
+            event.preventDefault();
 
-            socket.on('has disconnected', (data) => {
-                $('#users').html('');
-                updateUsers(data.userList);
-                $('#messages').append(`<li><i><b>${data.username}</b> has disconnected!</i></li>`)
-            });
+            if($('message').val() == '' || $('message').val() == ' ' ) {
+                alert(`You can't send empty messages`);
+            } else {
+                console.log($('#message').val());
+                socket.emit('new message', {username: $username, message: $('#message').val()});
+                $('#message').val('');
+            }
+        });
+
+        // handle event that came from the server (l.35)
+        socket.on('has connected', (data) => {
+            $('#users').html('');
+            updateUsers(data.userList);
+            $('#messages').append(`<li><i>User <b>${data.username}</b> has connected!</i></li>`);
+        });
+
+        socket.on('has disconnected', (data) => {
+            $('#users').html('');
+            updateUsers(data.userList);
+            $('#messages').append(`<li><i><b>${data.username}</b> has disconnected!</i></li>`)
+        });
+
+        socket.on('new message', (msgData) => {
+            $('#messages').append(`<li><b>${msgData.username}</b>: ${msgData.message}</li>`);
+        });
     </script>
 </body>
 
